@@ -1,0 +1,13 @@
+"Student ID","Student Name","Student Collage","Student Status","DSA Final Score","WebD Final Score","React Final Score","Interview Date","Interview Company","Interview Student Result"
+"624c10bff4a3654fcb644dad","Shubham Shringi","Indian Institute of Technology (IIT) Mumbai","Placed",90,99,95,"2022-04-22T00:00:00.000Z","TCS","PASS"
+"624c12acfeff0980244865d1","Amit Shringi","Indian Institute of Technology (IIT) Kanpur","Placed",43,56,87,"2022-04-25T00:00:00.000Z","Wipro","On Hold"
+"624c1551650ba70a153d638c","MSD","Indian Institute of Technology (IIT) Delhi","Placed",90,98,99,"2022-04-30T00:00:00.000Z","Infosys","PASS"
+"624c1207954433a50ec69c61","Kapil Shringi","Indian Institute of Technology (IIT) Delhi","Placed",92,90,96,"2022-04-22T00:00:00.000Z","TCS","FAIL"
+"624c12acfeff0980244865d1","Amit Shringi","Indian Institute of Technology (IIT) Kanpur","Placed",43,56,87,"2022-04-22T00:00:00.000Z","TCS","On Hold"
+"624c1551650ba70a153d638c","MSD","Indian Institute of Technology (IIT) Delhi","Placed",90,98,99,"2022-04-22T00:00:00.000Z","TCS","Didn't Attempt"
+"624c12acfeff0980244865d1","Amit Shringi","Indian Institute of Technology (IIT) Kanpur","Placed",43,56,87,"2022-04-30T00:00:00.000Z","Infosys","On Hold"
+"624d7b553af2608b76e1f99a","Kundan Kumar","Indian Institute of Technology (IIT) Kanpur","Not Placed",95,98,99,"2022-04-30T00:00:00.000Z","Infosys",
+"624d7b553af2608b76e1f99a","Kundan Kumar","Indian Institute of Technology (IIT) Kanpur","Not Placed",95,98,99,"2022-04-22T00:00:00.000Z","TCS",
+"624d7b553af2608b76e1f99a","Kundan Kumar","Indian Institute of Technology (IIT) Kanpur","Not Placed",95,98,99,"2022-04-25T00:00:00.000Z","Wipro",
+"624c12acfeff0980244865d1","Amit Shringi","Indian Institute of Technology (IIT) Kanpur","Placed",43,56,87,"2022-04-28T00:00:00.000Z","Tech Mahindra","PASS"
+"624c1207954433a50ec69c61","Kapil Shringi","Indian Institute of Technology (IIT) Delhi","Placed",92,90,96,"2022-04-28T00:00:00.000Z","Tech Mahindra","On Hold"

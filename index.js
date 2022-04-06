@@ -27,7 +27,7 @@ app.use(session({
     saveUninitialized : false,
     resave : false,
     cookie : {
-        maxAge : (1000 * 60 * 10)
+        maxAge : (1000 * 60 * 30)
     },
     store: mongoStore.create({
         mongoUrl: `mongodb://localhost/${env.db}`,

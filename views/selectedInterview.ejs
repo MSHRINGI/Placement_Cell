@@ -1,0 +1,65 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="/students/<%=interviewId%>/update" method="post">
+                    <% for(student of students) { %>
+                        <div class="col-6">
+                            <input type="text" value="<%=student.student.name%>" name="<%=student.student.id%>" readonly>
+                        </div>
+                        <div class="col-6">
+                            <% if(student.result) { %>
+                                <% if(student.result == "PASS") { %>
+                                    <label for="resultStatus">Result Status:</label>
+                                    <select name="result" id="resultStatus">
+                                        <option value="PASS" selected>PASS</option>
+                                        <option value="FAIL">FAIL</option>
+                                        <option value="On Hold">on Hold</option>
+                                        <option value="Didn't Attempt">Didn't Attempt</option>
+                                    </select>
+                                <% } else if(student.result == "FAIL") { %>
+                                    <label for="resultStatus">Result Status:</label>
+                                    <select name="result" id="resultStatus">
+                                        <option value="PASS">PASS</option>
+                                        <option value="FAIL" selected>FAIL</option>
+                                        <option value="On Hold">on Hold</option>
+                                        <option value="Didn't Attempt">Didn't Attempt</option>
+                                    </select>
+                                <% } else if(student.result == "On Hold") { %>
+                                    <label for="resultStatus">Result Status:</label>
+                                    <select name="result" id="resultStatus">
+                                        <option value="PASS">PASS</option>
+                                        <option value="FAIL">FAIL</option>
+                                        <option value="On Hold" selected>on Hold</option>
+                                        <option value="Didn't Attempt">Didn't Attempt</option>
+                                    </select>
+                                <% } else if(student.result == "Didn't Attempt") { %>
+                                    <label for="resultStatus">Result Status:</label>
+                                    <select name="result" id="resultStatus">
+                                        <option value="PASS">PASS</option>
+                                        <option value="FAIL">FAIL</option>
+                                        <option value="On Hold">on Hold</option>
+                                        <option value="Didn't Attempt" selected>Didn't Attempt</option>
+                                    </select>
+                                <% } %>
+                            <% }else{ %>
+                                <label for="resultStatus">Result Status:</label>
+                                <select name="result" id="resultStatus">
+                                    <option value="">Select</option>
+                                    <option value="PASS">PASS</option>
+                                    <option value="FAIL">FAIL</option>
+                                    <option value="On Hold">on Hold</option>
+                                    <option value="Didn't Attempt">Didn't Attempt</option>
+                                </select>
+                            <% } %>
+
+                        </div>
+                    <% } %>
+                    <div>
+                        <button type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

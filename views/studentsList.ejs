@@ -1,0 +1,17 @@
+
+
+<div class="container">
+    <div class="row">
+        <a href="/students/form"><button>Add New Student</button></a>
+    </div>
+    <div class="row">
+        <h3>List of all the students</h3>
+        <ol>
+            <% for(student of students) { %>
+                <li>
+                    <a href="#"> <%= student.name %> </a>
+                </li>    
+            <% } %>
+        </ol>
+    </div>
+</div>

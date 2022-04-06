@@ -24,6 +24,7 @@
     "express": "^4.17.3",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.2",
+    "json2csv": "^5.0.7",
     "mongoose": "^6.2.9",
     "morgan": "^1.10.0",
     "passport": "^0.5.2",
