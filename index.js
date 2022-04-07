@@ -10,6 +10,7 @@ const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const mongoStore = require('connect-mongo');
 
 app.use(logger(env.morgan.mode, env.morgan.options));
