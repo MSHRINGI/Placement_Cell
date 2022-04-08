@@ -16,7 +16,6 @@ passport.use(new LocalStrategy({
                 console.log("Invalid Email/Password while sign in");
                 return done(null, false);
             }
-            // console.log("user from LocalStrategy", user);
             return done(null, employee);
         });
     }
@@ -38,6 +37,7 @@ passport.deserializeUser(function(id, done){
     });
 });
 
+// made middleware for checking the employee is logged in or not
 passport.checkAuthentication = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
@@ -45,6 +45,7 @@ passport.checkAuthentication = function(req, res, next){
     return res.redirect('/employees/sign_in');
 }
 
+// save the user into the locals
 passport.setAuthenticatedUser = function(req, res, next){
     if(req.isAuthenticated()){
         res.locals.user = req.user;

@@ -2,6 +2,7 @@ const Interview = require('../models/interview');
 const Student = require('../models/student');
 const Relation = require('../models/relationship');
 
+// For rendering the interviews list page
 module.exports.list = async function(req, res){
     try{
         let interviews = await Interview.find({});
@@ -18,18 +19,7 @@ module.exports.list = async function(req, res){
     }
 }
 
-module.exports.form = async function(req, res){
-    try{
-        return res.render('interviewForm', {
-            title: "Interview Form"
-        })
-    }catch(err){
-        console.log("Error in displaying interviews form", err);
-        req.flash('error', "Something went wrong");
-        return res.redirect('back');
-    }
-}
-
+// for creating the Interview
 module.exports.create = async function(req, res){
     try{
         let interview = await Interview.create(req.body);
@@ -42,6 +32,7 @@ module.exports.create = async function(req, res){
     }
 }
 
+// for allocating Student to an Interview
 module.exports.allocateInterview = async function(req, res){
     try{
         let relation = await Relation.find({interview: req.body.interview, student: req.body.student});
@@ -64,12 +55,11 @@ module.exports.allocateInterview = async function(req, res){
     }
 }
 
+// For updating the details of student result
 module.exports.interviewDetail = async function(req, res){
     try{
-        // console.log("Params id", req.params.id);
         let students = [];
         students = await Relation.find({interview: req.params.id}).populate('student').populate('interview');
-        // console.log("students", students);
         return res.render('selectedInterview', {
             title: "Interview Details",
             students: students,

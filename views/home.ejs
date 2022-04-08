@@ -1,20 +1,41 @@
-
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>Home</h1>
-            </div>
-            <div class="col-6">
-                <a href="/students/list">Students List</a>
-            </div>
-            <div class="col-6">
-                <a href="/interviews/list">Interviews List</a>
-            </div>
-        </div>
-        <div class="row">
-            <a href="/students/data"><button>Download all data</button></a>
-        </div>
+<section style="background-image: url('/images/bg_home.jpeg'); min-height: 600px; background-size: cover;">
+  <div class="container">
+    <div class="row text-center text-white p-2">
+      <h2>Welcome To</h2>
+      <h1>Placement Cell</h1>
     </div>
-    
+    <div class="row d-flex justify-content-center">
+      <div class="col-4">
+        <div class="card shadow" style="width: 18rem;">
+          <img src="/images/students.png" class="card-img-top" alt="students" style="height: 180px; width: inherit;">
+          <div class="card-body">
+            <h5 class="card-title"><i class='fas fa-user-graduate'></i> Students List</h5>
+            <p class="card-text">Here is the list of all the registered student to Coding Ninjas.</p>
+            <a href="/students/list" class="btn btn-primary">Students</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card shadow" style="width: 18rem;">
+          <img src="/images/interviews.jpg" class="card-img-top" alt="interview image"
+            style="height: 180px; width: inherit;">
+          <div class="card-body">
+            <h5 class="card-title">Interviews</h5>
+            <p class="card-text">All the availabale interviews are here.</p>
+            <a href="/interviews/list" class="btn btn-primary">Interviews</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card shadow" style="width: 18rem;">
+          <img src="/images/data.jpeg" class="card-img-top" alt="database image" style="height: 180px; width: inherit;">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-file-download"></i> Download Details</h5>
+            <p class="card-text">Here you can download students detail with the interviews list and result.</p>
+            <a href="/students/data" class="btn btn-primary">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

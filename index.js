@@ -24,7 +24,7 @@ app.set('views', './views');
 
 app.use(session({
     name : 'Placement_Cell',
-    secret : 'somethingYouCanNotCrack',
+    secret : env.session_cookie_key,
     saveUninitialized : false,
     resave : false,
     cookie : {
@@ -37,6 +37,7 @@ app.use(session({
 }));
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(env.asset_path));
 
 app.use(passport.initialize());
 app.use(passport.session());

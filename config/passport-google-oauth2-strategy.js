@@ -2,11 +2,13 @@ const passport = require('passport');
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const crypto = require('crypto');
 const Employee = require('../models/employee');
+const env = require('../config/environment');
 
+// authentication from google oauth strategy
 passport.use(new googleStrategy({
-        clientID : '285418167104-79ouu053ru2802pqe4qkck3ok9099btk.apps.googleusercontent.com',
-        clientSecret : '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',
-        callbackURL : 'http://localhost:8882/employees/auth/google/callback'
+        clientID : env.google_client_id,
+        clientSecret : env.google_client_secret,
+        callbackURL : env.google_call_back_url
     },
     function(accessToken, refreshToken, profile, done){
         Employee.findOne({email : profile.emails[0].value}).exec(function(err, employee){
@@ -14,8 +16,7 @@ passport.use(new googleStrategy({
                 console.log("Error in finding user google passport-strategy", err);
                 return;
             }
-            // console.log(profile);
-
+            // if user found then return user if not create new user
             if(employee){
                 return done(null, employee);
             }else{

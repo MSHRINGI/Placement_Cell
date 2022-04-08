@@ -1,5 +1,6 @@
 const Employee = require('../models/employee');
 
+// For sign in the employee
 module.exports.signIn = async function(req, res){
     try{
         if(req.isAuthenticated()){
@@ -14,24 +15,14 @@ module.exports.signIn = async function(req, res){
     }
 }
 
-module.exports.signUp = async function(req, res){
-    try{
-        if(req.isAuthenticated()){
-            return res.redirect('/employees/profile');
-        }
-        return res.render('sign_up', {
-            title: "Sign Up"
-        })
-    }catch(err){
-        console.log("Error in sign up page", err);
-        return res.redirect('back');
-    }
-}
-
+// For rendering the profile page
 module.exports.profile = async function(req, res){
     try{
+        let employee = await Employee.findById(req.user._id);
+        // console.log("Employeeeee", employee);
         return res.render('profile', {
-            title: "Employee Profile"
+            title: "Employee Profile",
+            employee: employee
         });
     }catch(err){
         console.log("Error in loading profile", err);
@@ -39,6 +30,7 @@ module.exports.profile = async function(req, res){
     }
 }
 
+// For creating new Employee
 module.exports.create = async function(req, res){
     try{
         if(req.body.password != req.body.confirm_password){
@@ -53,8 +45,8 @@ module.exports.create = async function(req, res){
             return res.redirect('/employees/sign_in');
         }
         employee = Employee.create(req.body);
-        req.flash('success', "Employee registered successfully");
-        console.log("Employye registered successfully");
+        req.flash('success', "Employee Registered Successfully!!");
+        console.log("Employee registered successfully");
         return res.redirect('/');
     }catch(err){
         console.log("Error in creating employee", err);
@@ -63,9 +55,10 @@ module.exports.create = async function(req, res){
     }
 }
 
+// For creating the session for logged in user 
 module.exports.createSession = async function(req, res){
     try{
-        req.flash('success', "logged in successfully!!");
+        req.flash('success', "Logged in Successfully!!");
         return res.redirect('/');
     }catch(err){
         console.log("Error in creating session", err);
@@ -74,6 +67,7 @@ module.exports.createSession = async function(req, res){
     }
 }
 
+// For Sign Out the employee
 module.exports.destroy = async function(req, res){
     try{
         req.logout();

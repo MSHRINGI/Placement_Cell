@@ -1,46 +1,92 @@
-<section>
+<section style="background-image: url('/images/bg_interview.webp'); min-height: 600px; background-size: cover;">
     <div class="container">
+        <div class="row text-center p-2">
+            <h2>Interview Corner</h2>
+        </div>
         <div class="row">
-            <div class="col-12">
-                <a href="/interviews/form"><button>Create an Interview</button></a>
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-list"></i> Interview List</h5>
+                        <p class="card-text">List of all the Interviews</p>
+                        <% for(interview of interviews) { %>
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <a href="/interviews/<%=interview._id%>/students">
+                                            <%= interview.name %>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
             </div>
-            <div class="col-6">
-                <h3>List of all Interviews</h3>
-                <ol>
-                    <% for(interview of interviews) { %>
-                        <li>
-                            <a href="/interviews/<%=interview._id%>/students">
-                                <%= interview.name %>
-                            </a>
-                        </li>
-                    <% } %>
-                </ol>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-file-signature"></i> Interview Form</h5>
+                        <p class="card-text">Create an Interview with Date.</p>
+                        <form action="/interviews/create" method="post">
+                            <div class="input-group flex-nowrap p-2">
+                                <span class="input-group-text">Name</span>
+                                <input type="text" name="name" class="form-control" placeholder="Name" required>
+                            </div>
+                            <div class="input-group flex-nowrap p-2">
+                                <span class="input-group-text">Date</span>
+                                <input type="date" name="date" class="form-control" placeholder="Date" required>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success m-2">Create Interview</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="col-6">
-                <form action="/interviews/allocation" method="post">
-                    <div>
-                        <label for="interviewDropdown">Choose an Interview: </label>
-                        <select name="interview" id="interviewDropdown">
-                            <% for(interview of interviews) { %>
-                                <option value="<%= interview._id %>"><%= interview.name %></option>
-                            <% } %>
-                        </select>
+            <div class="col-sm-5">
+                <div class="card col-12">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-check"></i> Interview Allocation</h5>
+                        <p class="card-text">Allocate an Interview to the Student who is registered with us.</p>
+                        <form action="/interviews/allocation" method="post">
+                            <div class="col-12 d-flex justify-content-between p-2 fs-5">
+                                <div class="col-6">
+                                    <label for="interviewDropdown">Choose an Interview: </label>
+                                </div>
+                                <div class="col-6">
+                                    <select name="interview" id="interviewDropdown" class="p-1">
+                                        <% for(interview of interviews) { %>
+                                            <option value="<%= interview._id %>">
+                                                <span><%= interview.name %></span>
+                                            </option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-between p-2 fs-5">
+                                <div class="col-6">
+                                    <label for="studentDropdown">Select a Student: </label>
+                                </div>
+                                <div class="col-6">
+                                    <select name="student" id="studentDropdown" class="p-1">
+                                        <% for(student of students) { %>
+                                            <option value="<%= student._id %>">
+                                                <%= student.name %>
+                                            </option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-info m-2" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Allocate Student to an Interview">
+                                    Allocate Interview
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                    <div>
-                        <label for="studentDropdown">Select a Student: </label>
-                        <select name="student" id="studentDropdown">
-                            <% for(student of students) { %>
-                                <option value="<%= student._id %>"><%= student.name %></option>
-                            <% } %>
-                        </select>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                            title="Allocate Student to an Interview">
-                            Allocate Interview
-                        </button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
